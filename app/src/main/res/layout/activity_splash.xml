@@ -1,0 +1,196 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context=".FullscreenActivity">
+
+    <!-- The primary full-screen view. This can be replaced with whatever view
+         is needed to present your content, e.g. VideoView, SurfaceView,
+         TextureView, etc. -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/splash_screen">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView2"
+            android:src="@drawable/splash"/>
+
+        <Button
+            android:id="@+id/score_button"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_background"
+            android:padding="8dp"
+            android:text="High Scores"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"/>
+
+        <Button
+            android:id="@+id/start_button"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_background"
+            android:text="Start Game"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:padding="8dp"
+
+            android:layout_above="@+id/score_button"
+            android:layout_alignStart="@+id/score_button"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/score_screen"
+        android:background="#CC000000"
+        >
+
+        <RelativeLayout
+            android:id="@+id/settings_screen"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#80000000"
+            android:gravity="center"
+            android:paddingLeft="150dp"
+            android:paddingRight="150dp">
+
+            <RelativeLayout
+                android:id="@+id/setting_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_background"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="5dp"
+                    android:text="High Scores"
+                    android:textColor="#ffffff"
+                    android:textSize="28sp"/>
+
+                <TextView
+                    android:id="@+id/player1_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Top Player Score:"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:layout_below="@id/textView"/>
+                <TextView
+                    android:id="@+id/p1_score_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1000"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:layout_below="@id/textView"
+                    android:layout_alignParentRight="true"/>
+
+                <TextView
+                    android:id="@+id/player2_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2nd Best Score:"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:layout_below="@id/player1_text"/>
+
+                <TextView
+                    android:id="@+id/p2_score_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1000"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:layout_below="@id/p1_score_text"
+                    android:layout_alignParentRight="true"/>
+                <TextView
+                    android:id="@+id/player3_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3rd Best Score:"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:layout_below="@id/player2_text"/>
+
+                <TextView
+                    android:id="@+id/p3_score_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1000"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:layout_below="@id/p2_score_text"
+                    android:layout_alignParentRight="true"/>
+                <TextView
+                    android:id="@+id/player4_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4th Best Score:"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:layout_below="@id/player3_text"/>
+                <TextView
+                    android:id="@+id/p4_score_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1000"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:layout_below="@id/p3_score_text"
+                    android:layout_alignParentRight="true"/>
+                <TextView
+                    android:id="@+id/player5_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5th Best Score:"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:layout_below="@id/player4_text"/>
+                <TextView
+                    android:id="@+id/p5_score_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1000"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:layout_below="@id/p4_score_text"
+                    android:layout_alignParentRight="true"/>
+
+
+
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/score_back_button"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/setting_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/button_background"
+                android:padding="5dp"
+                android:text="Back"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
+                android:textSize="18sp"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

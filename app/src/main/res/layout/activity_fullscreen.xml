@@ -1,0 +1,517 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:background="#0099cc"
+             tools:context=".FullscreenActivity">
+
+    <!-- The primary full-screen view. This can be replaced with whatever view
+         is needed to present your content, e.g. VideoView, SurfaceView,
+         TextureView, etc. -->
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <com.eric.vectorassault.GameView
+            android:id="@+id/game_screen"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </com.eric.vectorassault.GameView>
+
+        <!-- This FrameLayout insets its children based on system windows using
+             android:fitsSystemWindows. -->
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true">
+
+            <LinearLayout
+                android:id="@+id/GUI"
+                style="?metaButtonBarStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:background="@color/black_overlay"
+                android:orientation="vertical"
+                tools:ignore="UselessParent">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp">
+
+                    <TextView
+                        android:id="@+id/score_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:text="Score: 0"
+                        android:textColor="#ffffff"
+                        android:textSize="16sp"/>
+
+                    <TextView
+                        android:id="@+id/multiplier_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@id/score_text"
+                        android:text="x1"
+                        android:textColor="#ffffff"
+                        android:textSize="16sp"/>
+
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:src="@drawable/ship_icon"/>
+
+
+                    <TextView
+                        android:id="@+id/lives_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="3dp"
+                        android:layout_toRightOf="@id/imageView"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:text="x3"
+                        android:textAlignment="center"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp"/>
+
+                    <TextView
+                        android:id="@+id/enemies_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/imageView"
+                        android:text="Enemies: 10"
+                        android:textColor="#ffffff"
+                        android:textSize="16sp"/>
+
+                    <TextView
+                        android:id="@+id/timer_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:text="2:00"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp"/>
+
+                    <ImageButton
+                        android:id="@+id/pause_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@id/enemies_text"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/button_background"
+                        android:src="@drawable/ic_play_arrow_white_36dp"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:id="@+id/layout_move_joystick"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_gravity="bottom|left"
+                        android:background="@drawable/image_button_bg">
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/layout_shoot_joystick"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_gravity="bottom|right"
+                        android:background="@drawable/image_button_bg">
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+    </FrameLayout>
+
+    <RelativeLayout
+        android:id="@+id/pause_menu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#CC000000"
+        android:gravity="center"
+        android:paddingLeft="150dp"
+        android:paddingRight="150dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Game Paused"
+            android:textColor="#ffffff"
+            android:textSize="28sp"/>
+
+        <Button
+            android:id="@+id/resume_button"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_background"
+            android:padding="5dp"
+            android:text="Resume"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+
+            />
+
+        <Button
+            android:id="@+id/settings_button"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/resume_button"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_background"
+            android:padding="5dp"
+            android:text="Settings"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+
+            />
+
+        <Button
+            android:id="@+id/restart_button"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/settings_button"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_background"
+            android:padding="5dp"
+            android:text="Restart"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            />
+
+        <Button
+            android:id="@+id/quit_button"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/restart_button"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_background"
+            android:padding="5dp"
+            android:text="Quit"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+
+
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/settings_screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#CC000000"
+        android:gravity="center"
+        android:paddingLeft="150dp"
+        android:paddingRight="150dp">
+
+        <RelativeLayout
+            android:id="@+id/setting_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_background"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/fx_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sound FX Volume"
+                android:textColor="#ffffff"
+                android:textSize="20sp"/>
+
+            <SeekBar
+                android:id="@+id/fx_bar"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/fx_text"
+                />
+
+            <TextView
+                android:id="@+id/music_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/fx_bar"
+                android:text="Music Volume"
+                android:textColor="#ffffff"
+                android:textSize="20sp"
+                />
+
+            <SeekBar
+                android:id="@+id/music_bar"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/music_text"
+                />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/settings_back_button"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/setting_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_background"
+            android:padding="5dp"
+            android:text="Back"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textSize="18sp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/restart_screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#CC000000"
+        android:gravity="center"
+        android:paddingLeft="150dp"
+        android:paddingRight="150dp">
+
+        <RelativeLayout
+            android:id="@+id/restart_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_background"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/reset_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Are you sure want to restart? All current progress will be lost."
+                android:textColor="#ffffff"
+                android:textSize="18sp"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/restart_content"
+            android:orientation="horizontal"
+            >
+
+            <Button
+                android:id="@+id/restart_no_button"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_background"
+                android:padding="5dp"
+                android:text="No"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
+                android:textSize="18sp"/>
+
+            <Button
+                android:id="@+id/restart_yes_button"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_background"
+                android:padding="5dp"
+                android:text="Yes"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
+                android:textSize="18sp"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/quit_screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#CC000000"
+
+        android:gravity="center"
+        android:paddingLeft="150dp"
+        android:paddingRight="150dp">
+
+        <RelativeLayout
+            android:id="@+id/quit_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_background"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/quit_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Are you sure want to quit? All current progress will be lost."
+                android:textColor="#ffffff"
+                android:textSize="18sp"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/quit_content"
+            android:orientation="horizontal"
+            >
+
+            <Button
+                android:id="@+id/quit_no_button"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_background"
+                android:padding="5dp"
+                android:text="No"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
+                android:textSize="18sp"/>
+
+            <Button
+                android:id="@+id/quit_yes_button"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_background"
+                android:padding="5dp"
+                android:text="Yes"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
+                android:textSize="18sp"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/game_over_screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#CC000000"
+
+        android:gravity="center"
+        android:paddingLeft="150dp"
+        android:paddingRight="150dp">
+
+        <RelativeLayout
+            android:id="@+id/gameover_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_background"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="5dp"
+                android:text="Game Over"
+                android:textStyle="bold"
+
+                android:textColor="#ffffff"
+                android:textSize="28sp"/>
+
+            <TextView
+                android:id="@+id/message_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Time has expired!"
+                android:textColor="#ffffff"
+                android:layout_centerHorizontal="true"
+                android:textSize="22sp"
+                android:layout_marginTop="5dp"
+
+                android:layout_below="@id/textView1"/>
+
+            <TextView
+                android:id="@+id/final_score_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Score: 20,000"
+                android:textColor="#ffffff"
+                android:layout_centerHorizontal="true"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"
+
+                android:layout_below="@id/message_text"/>
+            <TextView
+                android:id="@+id/new_highscore_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New 2nd Best High Score!"
+                android:textColor="#ff0000"
+                android:layout_centerHorizontal="true"
+                android:textSize="22sp"
+                android:textStyle="bold"
+
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/final_score_text"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/gameover_content"
+            android:orientation="horizontal"
+            >
+
+            <Button
+                android:id="@+id/gameover_continue_button"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_background"
+                android:padding="5dp"
+                android:text="Continue"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
+                android:textSize="18sp"/>
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</FrameLayout>
